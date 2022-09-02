@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yussman | Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.html">Yussman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Store</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Departments
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="shopA1.html">Shop A1</a></li>
+                            <li><a class="dropdown-item" href="#">Shop A2</a></li>
+                            <li><a class="dropdown-item" href="#">Shop B</a></li>
+                            <li><a class="dropdown-item" href="#">Shop C</a></li>
+                            <li><a class="dropdown-item" href="#">Talk Time Store</a></li>
+                            <li><a class="dropdown-item" href="#">Talk Time Shop</a></li>
+                            <li><a class="dropdown-item" href="#">Blocks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="../index.html" class="btn btn-warning">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- hero buttons -->
+    <div class="container pb-3">
+        <table class="table">
+
+            <thead>
+                <th>
+                    <h1>Restaurant</h1>
+                </th>
+                <th>
+                    <label for="shift" class="text-muted">Shift</label>
+                    <select name="shift" id="shift" class="form-select">
+                        <option selected>Select Shift</option>
+                        <option>Day Shift</option>
+                        <option>Night Shift</option>
+                    </select>
+                </th>
+                <th>
+                    <label class="mb-2 text-muted" for="date">Date</label>
+                    <input id="date" type="date" class="form-control" required autofocus />
+                </th>
+                <th>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#addProductModal">
+                        New product
+                    </button>
+                </th>
+                <th>
+                    <button class="btn btn-danger btn-lg" type="button">
+                        Next Shift
+                    </button>
+                </th>
+            </thead>
+        </table>
+
+
+    </div>
+    <!-- hero buttons -->
+    <!-- tabs -->
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Stock Sheet</button>
+                <button class="nav-link" id="nav-cash-tab" data-bs-toggle="tab" data-bs-target="#nav-cash" type="button"
+                    role="tab" aria-controls="nav-cash" aria-selected="true">Cash</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Received</button>
+                <button class="nav-link" id="nav-transfer-tab" data-bs-toggle="tab" data-bs-target="#nav-transfer"
+                    type="button" role="tab" aria-controls="nav-transfer" aria-selected="true">Transfer</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Credit</button>
+                <button class="nav-link" id="nav-bus-tab" data-bs-toggle="tab" data-bs-target="#nav-bus" type="button"
+                    role="tab" aria-controls="nav-bus" aria-selected="true">Busses</button>
+                <button class="nav-link" id="nav-topup-tab" data-bs-toggle="tab" data-bs-target="#nav-topup"
+                    type="button" role="tab" aria-controls="nav-topup" aria-selected="true">TopUp</button>
+                <button class="nav-link" id="nav-final-tab" data-bs-toggle="tab" data-bs-target="#nav-final"
+                    type="button" role="tab" aria-controls="nav-final" aria-selected="true">Final</button>
+            </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+            <!-- main stock -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
+                <div class="pt-3">
+                    <table class="table table-sm table-striped table-hover table-bordered">
+                        <h2>Drinks</h2>
+                        <thead>
+                            <tr>
+                                <th scope="col">Code#</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">O Stock</th>
+                                <th scope="col">Received</th>
+                                <th scope="col">Damage</th>
+                                <th scope="col">C Stock</th>
+                                <th scope="col">Sales</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1001</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Appy Apple 500ml</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-striped table-hover table-bordered">
+                        <h2>Food</h2>
+                        <thead>
+                            <tr>
+                                <th scope="col">Code#</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">O Stock</th>
+                                <th scope="col">Received</th>
+                                <th scope="col">Damage</th>
+                                <th scope="col">C Stock</th>
+                                <th scope="col">Sales</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K50</td>
+                                <td scope="col">Karanga</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K500</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-striped table-hover table-bordered">
+                        <h2>Bakery</h2>
+                        <thead>
+                            <tr>
+                                <th scope="col">Code#</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">O Stock</th>
+                                <th scope="col">Received</th>
+                                <th scope="col">Damage</th>
+                                <th scope="col">C Stock</th>
+                                <th scope="col">Sales</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Samusa</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Samusa</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Samusa</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Samusa</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">1002</td>
+                                <td scope="col">K10</td>
+                                <td scope="col">Samusa</td>
+                                <td scope="col">1</td>
+                                <td scope="col">10</td>
+                                <td scope="col">0</td>
+                                <td scope="col">1</td>
+                                <td scope="col">K100</td>
+                                <td scope="col">
+                                    <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- main stock -->
+            <!-- Cash -->
+            <div class="tab-pane fade" id="nav-cash" role="tabpanel" aria-labelledby="nav-cash-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Amount<input type="number" class="form-control"></th>
+                            <th><button class="btn btn-primary">Add</button></th>
+                            <th>Total<p class="form-control">K3900</p>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-sm table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td scope="col">12:14:49 PM</td>
+                            <td scope="col">K3900</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- Cash -->
+            <!-- receive -->
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Code<input class="form-control" type="number"></th>
+                            <th>Name<p>Product Name Should Appear Here</p>
+                            </th>
+                            <th>Quantity<input type="number" class="form-control"></th>
+                            <th><button class="btn btn-primary">Add</button></th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-sm table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Code#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">1001</td>
+                            <td scope="col">Appy Apple 500ml</td>
+                            <td scope="col">10</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- receive -->
+            <!-- transfer -->
+            <div class="tab-pane fade" id="nav-transfer" role="tabpanel" aria-labelledby="nav-transfer-tab"
+                tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Code</label>
+                                    <input type="number" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" id="exampleFormControlInput4">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput2" class="form-label">Name</label>
+                                    <p>Product name will appear here</p>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="mb-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Transfer To:</option>
+                                        <option value="1">Shop A1</option>
+                                        <option value="2">Shop A2</option>
+                                        <option value="3">Shop B</option>
+                                    </select>
+                                </div>
+                            </th>
+                            <th class="pb-4"><button class="btn btn-primary">Submit</button></th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center">Transfers Received</h3>
+                        <table class="table table-sm table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Quantity</th>
+                                    <th>Name</th>
+                                    <th>From</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop C</td>
+                                    <td><button class="btn btn-outline-secondary btn-sm">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <h3 class="text-center">Transfers Sent</h3>
+                        <table class="table table-sm table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Quantity</th>
+                                    <th>Name</th>
+                                    <th>To</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>10</td>
+                                    <td>Appy Apple 500ml</td>
+                                    <td>Shop A1</td>
+                                    <td>
+                                        <button class="btn btn-outline-secondary btn-sm">Edit</button>
+                                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- transfer -->
+            <!-- credit -->
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Discription<input id="creditDiscription" class="form-control" type="text"></th>
+                            </th>
+                            <th>Amount<input type="number" id="creditAmount" class="form-control"></th>
+                            <th><button class="btn btn-primary" id="creditBtn">Add</button></th>
+                            <th>Amount<p id="creditTotal" class="form-control">K34</p>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-sm table-hover table-bordered" id="creditTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Discription</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td scope="col">Junka Water</td>
+                            <td scope="col">K7</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Benja Fruitcana</td>
+                            <td scope="col">K12</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Nasra Cash</td>
+                            <td scope="col">K15</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- credit -->
+            <!-- busses -->
+            <div class="tab-pane fade" id="nav-bus" role="tabpanel" aria-labelledby="nav-bus-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Bus Name<input class="form-control" type="text"></th>
+                            </th>
+                            <th>Drivers Name<input class="form-control" type="text"></th>
+                            </th>
+                            <th>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Collected
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Not Collected
+                                    </label>
+                                </div>
+                            </th>
+                            <th>Amount<input type="number" class="form-control"></th>
+                            <th><button class="btn btn-primary">Add</button></th>
+                            <th>Collected Total<p class="form-control" type="text">K0</p>
+                            </th>
+                            <th>Not Collected Total<p class="form-control" type="text">K0</p>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-sm table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Bus Name</th>
+                            <th scope="col">Driver</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td scope="col">Mbwe</td>
+                            <td scope="col">Michael</td>
+                            <td scope="col">Not Collected</td>
+                            <td scope="col">K150</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Mbwe</td>
+                            <td scope="col">Kapoko</td>
+                            <td scope="col">Not Collected</td>
+                            <td scope="col">K150</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Likili</td>
+                            <td scope="col">Frank</td>
+                            <td scope="col">Collected</td>
+                            <td scope="col">K100</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- busses -->
+            <!-- topup -->
+            <div class="tab-pane fade" id="nav-topup" role="tabpanel" aria-labelledby="nav-topup-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Bus Name<input class="form-control" required id="topupBusBame" type="text"></th>
+                            </th>
+                            <th>Drivers Name<input class="form-control" required id="topupDriversName" type="text"></th>
+                            </th>
+                            <th>Amount<input type="number" required id="topupAmount" class="form-control"></th>
+                            <th><button class="btn btn-primary" id="topupBtn">Add</button></th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-sm table-hover table-bordered" id="topupTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Bus Name</th>
+                            <th scope="col">Driver</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td scope="col">Mbwe</td>
+                            <td scope="col">Michael</td>
+                            <td scope="col">K150</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Mbwe</td>
+                            <td scope="col">Michael</td>
+                            <td scope="col">K150</td>
+                            <td scope="col">
+                                <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- topup -->
+            <!-- result/final -->
+            <div class="tab-pane fade" id="nav-final" role="tabpanel" aria-labelledby="nav-final-tab" tabindex="0">
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-sm">
+                            <thead>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total Sales:</td>
+                                    <td>Total Sales Should Appear Here</td>
+                                </tr>
+                                <tr>
+                                    <td>Credit:</td>
+                                    <td>Credit Total Should Appear Here</td>
+                                </tr>
+                                <tr>
+                                    <td>Busses Collected :</td>
+                                    <td>Busses Collected Total Should Appear Here</td>
+                                </tr>
+                                <tr>
+                                    <td><label for="change" class="form-label">Change</label> :</td>
+                                    <td>
+                                        <div class="mb-3">
+                                            <input type="number" class="form-control" id="change">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="cash" class="form-label">Cash</label> :</td>
+                                    <td>Cash total Collected Total Should Appear Here</td>
+                                </tr>
+                                <tr class="table-group-divider">
+                                    <td>Shortage/Extra:</td>
+                                    <td>Shortage or Extra Should Appear Here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-sm">
+                            <thead>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TopUp:</td>
+                                    <td>TopUp Total Should Appear Here</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Not Collected:</td>
+                                    <td>Not Collected Should Appear Here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- result/final -->
+        </div>
+        <!-- tabs -->
+
+        <!-- add modal  -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form action="" class="needs-validation" novalidate="" autocomplete="off">
+                                <label for="section" class="text-muted">Section</label>
+                                <select name="section" id="section" class="form-select">
+                                    <option selected>Select Section</option>
+                                    <option>Drinks</option>
+                                    <option>Food</option>
+                                    <option>Bakery</option>
+                                </select>
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="code">Code</label>
+                                    <p id="code" type="number">10101</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="price">Name</label>
+                                    <input id="price" type="text" class="form-control" required autofocus />
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="mb-2 w-100">
+                                        <label class="text-muted" for="price">Price</label>
+
+                                    </div>
+                                    <input id="price" type="number" class="form-control" name="password" required />
+                                </div>
+                                <button type="button" class="btn btn-primary" type="submit">Save</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- add modal  -->
+    </div>
+    <!-- scipts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="../js/restaurant.js"></script>
+</body>
+
+</html>
