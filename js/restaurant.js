@@ -22,8 +22,6 @@ creditBtn.addEventListener("click", () => {
   creditTable.innerHTML += template;
 });
 
-//add credit
-
 //topup credit
 
 let topupBusBame = document.getElementById("topupBusBame");
@@ -51,5 +49,3 @@ topupBtn.addEventListener("click", () => {
   topupTable.innerHTML += template;
   console.log(template);
 });
-
-//topup credit
